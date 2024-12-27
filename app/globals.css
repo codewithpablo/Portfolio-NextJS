@@ -2,20 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.badge{
+    @apply shadow-2xl flex items-center gap-3 border rounded-2xl px-6 py-2 text-gray-800 font-semibold    lg:w-[250px] text-sm overflow-hidden
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Definir la animación para los elementos que flotan */
+@keyframes floatingUpDown {
+    0% {
+      transform: translateY(-10px);  /* Comienza ligeramente arriba */
+    }
+    50% {
+      transform: translateY(10px);   /* Baja hacia abajo */
+    }
+    100% {
+      transform: translateY(-10px);  /* Vuelve arriba */
+    }
   }
-}
+  
+  /* Clases personalizadas para los badges con delays y duraciones diferentes */
+  .floating-element {
+    animation: floatingUpDown 10s infinite ease-in-out;
+    transition: transform 0 ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Asignar diferentes delays a los elementos */
+  .floating-element-1 {
+    animation-delay: 0s; /* Empieza inmediatamente */
+  }
+  
+  .floating-element-2 {
+    animation-delay: 2s; /* Empieza después de 1 segundo */
+  }
+  
+  .floating-element-3 {
+    animation-delay: 4s; /* Empieza después de 2 segundos */
+  }
+  
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
